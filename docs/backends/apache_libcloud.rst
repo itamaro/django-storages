@@ -43,13 +43,13 @@ Amazon S3 store, and a third bucket (``bucket-3``) on Google::
 
     LIBCLOUD_PROVIDERS = {
         'amazon_1': {
-            'type': 'libcloud.storage.types.Provider.S3_US_STANDARD_HOST',
+            'type': 'libcloud.storage.types.Provider.S3',
             'user': '<your username here>',
             'key': '<your key here>',
             'bucket': 'bucket-1',
         },
         'amazon_2': {
-            'type': 'libcloud.storage.types.Provider.S3_US_STANDARD_HOST',
+            'type': 'libcloud.storage.types.Provider.S3',
             'user': '<your username here>',
             'key': '<your key here>',
             'bucket': 'bucket-2',
@@ -67,16 +67,16 @@ your storage provider:
 
     **Amazon S3**:
 
-        **type**: ``libcloud.storage.types.Provider.S3_US_STANDARD_HOST``,
+        **type**: ``libcloud.storage.types.Provider.S3``,
 
         **user**: Your AWS access key ID
 
         **key**: Your AWS secret access key
 
         If you want to use a availability zone other than the US default, you
-        can use one of ``S3_US_WEST_HOST``, ``S3_US_WEST_OREGON_HOST``,
-        ``S3_EU_WEST_HOST``, ``S3_AP_SOUTHEAST_HOST``, or
-        ``S3_AP_NORTHEAST_HOST`` instead of ``S3_US_STANDARD_HOST``.
+        can use one of ``S3_US_WEST``, ``S3_US_WEST_OREGON``,
+        ``S3_EU_WEST``, ``S3_AP_SOUTHEAST``, or
+        ``S3_AP_NORTHEAST`` instead of ``S3``.
 
     **Google Cloud Storage**:
 
@@ -126,10 +126,10 @@ Once you have defined your Libcloud providers, you have the option of
 setting one provider as the default provider of Libcloud storage. This
 is done setting ``DEFAULT_LIBCLOUD_PROVIDER`` to the key in
 ``LIBCLOUD_PROVIDER`` that you want to use as the default provider.
-For example, if you want the ``amazon-1`` provider to be the default
+For example, if you want the ``amazon_1`` provider to be the default
 provider, use::
 
-    DEFAULT_LIBCLOUD_PROVIDER = 'amazon-1'
+    DEFAULT_LIBCLOUD_PROVIDER = 'amazon_1'
 
 If ``DEFAULT_LIBCLOUD_PROVIDER`` isn't set, the Libcloud backend will assume
 that the default storage backend is named ``default``. Therefore, you can
